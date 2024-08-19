@@ -42,8 +42,10 @@ struct TransactionContext {
     4: optional ID paymentId
 }
 
-union Attachment {
-    1: Base64EncodedAttachment base64EncodedAttachment
+struct Attachment {
+    1: required binary source
+    2: optional MIMEType mimeType
+    3: optional string name
 }
 
 struct DisputeCreatedSuccessResult {
@@ -66,12 +68,6 @@ struct DisputeStatusFailResult {
 
 struct Amount {
     1: required domain.Amount value
-    2: required i16 exponent
-    3: optional string currencyName
-}
-
-struct Base64EncodedAttachment {
-    1: required string base64EncodedSource
-    2: optional MIMEType mimeType
-    3: optional string name
+//     ISO 4217
+    3: optional string currency
 }

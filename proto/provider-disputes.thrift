@@ -43,9 +43,8 @@ struct TransactionContext {
 }
 
 struct Attachment {
-    1: required binary source
+    1: required string sourceUrl
     2: optional MIMEType mimeType
-    3: optional string name
 }
 
 struct DisputeCreatedSuccessResult {

@@ -15,7 +15,7 @@ service ProviderDisputesService {
 struct DisputeParams {
     1: required TransactionContext transactionContext
     2: required list<Attachment> attachments
-    3: optional Amount amount
+    3: optional Cash cash
     4: optional string reason
 }
 
@@ -56,7 +56,7 @@ struct DisputeCreatedFailResult {
 }
 
 struct DisputeStatusSuccessResult {
-    1: optional Amount changedAmount
+    1: optional domain.Amount changedAmount
 }
 
 struct DisputeStatusPendingResult {}
@@ -65,8 +65,7 @@ struct DisputeStatusFailResult {
     1: required domain.Failure failure
 }
 
-struct Amount {
-    1: required domain.Amount value
-//     ISO 4217
-    3: optional string currency
+struct Cash {
+    1: required domain.Amount   amount
+    2: required domain.Currency currency
 }

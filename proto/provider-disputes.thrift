@@ -38,13 +38,13 @@ union DisputeStatusResult {
 struct TransactionContext {
     1: required ID providerTrxId
     2: required domain.ProxyOptions terminalOptions
-    3: optional ID invoiceId
-    4: optional ID paymentId
+    3: required ID invoiceId
+    4: required ID paymentId
 }
 
 struct Attachment {
     1: required string sourceUrl
-    2: optional MIMEType mimeType
+    2: required MIMEType mimeType
 }
 
 struct DisputeCreatedSuccessResult {

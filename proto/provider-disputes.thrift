@@ -12,6 +12,12 @@ service ProviderDisputesService {
 
 }
 
+service AdminDisputesService {
+
+    void CancelPending (1: ID disputeId)
+
+}
+
 struct DisputeParams {
     1: required TransactionContext transactionContext
     2: required list<Attachment> attachments
@@ -26,11 +32,12 @@ union DisputeCreatedResult {
 
 struct DisputeContext {
     1: required ID disputeId
-    2: required domain.ProxyOptions terminalOptions
+    2: required domain.Currency currency
+    3: required domain.ProxyOptions terminalOptions
 }
 
 union DisputeStatusResult {
-    1: DisputeStatusPendingResult pendingSuccess
+    1: DisputeStatusPendingResult statusPending
     2: DisputeStatusSuccessResult statusSuccess
     3: DisputeStatusFailResult statusFail
 }

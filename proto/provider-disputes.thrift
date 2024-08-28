@@ -16,6 +16,8 @@ service AdminDisputesService {
 
     void CancelPending (1: ID disputeId, 2: string cancelReason)
 
+    void ApprovePending (1: ID disputeId, 2: domain.Amount changedAmount)
+
 }
 
 struct DisputeParams {
@@ -73,6 +75,6 @@ struct DisputeStatusFailResult {
 }
 
 struct Cash {
-    1: required domain.Amount   amount
+    1: required domain.Amount amount
     2: required domain.Currency currency
 }

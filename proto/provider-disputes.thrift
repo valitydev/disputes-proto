@@ -14,7 +14,7 @@ service ProviderDisputesService {
 
 service AdminDisputesService {
 
-    void CancelPending (1: ID disputeId)
+    void CancelPending (1: ID disputeId, 2: string cancelReason)
 
 }
 

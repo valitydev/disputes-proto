@@ -18,7 +18,7 @@ service ManualParsingService {
 
     void ApprovePending (1: ID disputeId, 2: domain.Amount changedAmount)
 
-    void bind(1: ID disputeId, 2: ID providerDisputeId)
+    void bindCreated (1: ID disputeId, 2: ID providerDisputeId)
 
 }
 

@@ -12,11 +12,13 @@ service ProviderDisputesService {
 
 }
 
-service AdminDisputesService {
+service ManualParsingService {
 
     void CancelPending (1: ID disputeId, 2: string cancelReason)
 
     void ApprovePending (1: ID disputeId, 2: domain.Amount changedAmount)
+
+    void bind(1: ID disputeId, 2: ID providerDisputeId)
 
 }
 

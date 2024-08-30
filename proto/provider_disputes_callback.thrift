@@ -15,6 +15,6 @@ service ProviderDisputesCallbackService {
 
 struct DisputeCallbackParams {
     1: required TransactionContext transactionContext
-    2: required ProviderDisputeID providerDisputeID
+    2: required ProviderDisputeID providerDisputeId
     3: required DisputeStatusResult disputeStatusResult
 }

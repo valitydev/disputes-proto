@@ -28,17 +28,17 @@ struct BindParamsRequest {
 }
 
 struct CancelParams {
-    1: required DisputeID disputeID
+    1: required DisputeID disputeId
     2: optional string cancelReason
 }
 
 struct ApproveParams {
-    1: required DisputeID disputeID
+    1: required DisputeID disputeId
     2: required bool skipCallHgForCreateAdjustment
     3: optional domain.Amount changedAmount
 }
 
 struct BindParams {
-    1: required DisputeID disputeID
+    1: required DisputeID disputeId
     2: required ID providerDisputeId
 }

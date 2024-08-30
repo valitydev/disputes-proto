@@ -2,6 +2,7 @@ namespace java dev.vality.disputes
 include "proto/domain.thrift"
 
 typedef string ID
+typedef string ProviderDisputeID
 typedef string MIMEType
 
 service ProviderDisputesService {
@@ -9,16 +10,6 @@ service ProviderDisputesService {
     DisputeCreatedResult CreateDispute (1: DisputeParams disputeParams)
 
     DisputeStatusResult CheckDisputeStatus (1: DisputeContext disputeContext)
-
-}
-
-service ManualParsingService {
-
-    void CancelPending (1: ID disputeId, 2: string cancelReason)
-
-    void ApprovePending (1: ID disputeId, 2: domain.Amount changedAmount)
-
-    void BindCreated (1: ID disputeId, 2: ID providerDisputeId)
 
 }
 
@@ -35,7 +26,7 @@ union DisputeCreatedResult {
 }
 
 struct DisputeContext {
-    1: required ID disputeId
+    1: required ProviderDisputeID providerDisputeId
     2: required domain.Currency currency
     3: required domain.ProxyOptions terminalOptions
 }
@@ -59,7 +50,7 @@ struct Attachment {
 }
 
 struct DisputeCreatedSuccessResult {
-    1: required ID disputeId
+    1: required ProviderDisputeID providerDisputeId
 }
 
 struct DisputeCreatedFailResult {

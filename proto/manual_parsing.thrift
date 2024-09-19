@@ -13,6 +13,8 @@ service ManualParsingService {
 
     void BindCreated (1: BindParamsRequest bindParamsRequest)
 
+    DisputeResult GetDispute(1: DisputeParamsRequest disputeParamsRequest)
+
 }
 
 struct CancelParamsRequest {
@@ -25,6 +27,15 @@ struct ApproveParamsRequest {
 
 struct BindParamsRequest {
     1: required list<BindParams> bindParams
+}
+
+struct DisputeParamsRequest {
+    1: required list<DisputeParams> disputeParams
+    2: required bool withAttachments
+}
+
+struct DisputeResult {
+    1: required list<Dispute> disputes
 }
 
 struct CancelParams {
@@ -41,4 +52,26 @@ struct ApproveParams {
 struct BindParams {
     1: required DisputeID disputeId
     2: required ID providerDisputeId
+}
+
+struct DisputeParams {
+    1: required DisputeID disputeId
+}
+
+struct Dispute {
+    1: required DisputeID disputeId
+    2: optional string providerDisputeId
+    3: required string invoiceId
+    4: required string paymentId
+    5: required string providerTrxId
+    6: required string status
+    7: optional string errorMessage
+    8: required string amount
+    9: optional string changedAmount
+    10: required bool skipCallHgForCreateAdjustment
+    11: optional list<Attachment> attachments
+}
+
+struct Attachment {
+    1: required binary data
 }

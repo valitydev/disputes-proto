@@ -13,7 +13,7 @@ service ManualParsingService {
 
     void BindCreated (1: BindParamsRequest bindParamsRequest)
 
-    DisputeResult GetDispute(1: DisputeParamsRequest disputeParamsRequest)
+    DisputeResult GetDisputes (1: DisputeParamsRequest disputeParamsRequest)
 
 }
 

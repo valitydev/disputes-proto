@@ -7,9 +7,9 @@ typedef string DisputeID
 
 service ManualParsingService {
 
-    void CancelPending (1: CancelParamsRequest CancelParamsRequest)
+    void CancelPending (1: CancelParamsRequest cancelParamsRequest)
 
-    void ApprovePending (1: ApproveParamsRequest ApproveParamsRequest)
+    void ApprovePending (1: ApproveParamsRequest approveParamsRequest)
 
     void BindCreated (1: BindParamsRequest bindParamsRequest)
 

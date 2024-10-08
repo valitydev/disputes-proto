@@ -1,4 +1,4 @@
-namespace java dev.vality.disputes
+namespace java dev.vality.disputes.merchant
 
 typedef string DisputeID
 typedef string MIMEType

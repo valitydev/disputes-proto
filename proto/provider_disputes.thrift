@@ -1,4 +1,4 @@
-namespace java dev.vality.disputes
+namespace java dev.vality.disputes.provider
 include "proto/domain.thrift"
 
 typedef string ID

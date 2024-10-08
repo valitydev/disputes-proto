@@ -10,14 +10,14 @@
         <version>2.0.2</version>
     </parent>
 
-    <artifactId>provider-disputes-proto</artifactId>
+    <artifactId>disputes-proto</artifactId>
     <version>${revision}</version>
     <packaging>jar</packaging>
 
-    <name>provider-disputes-proto</name>
+    <name>disputes-proto</name>
     <description>Generates jar artifact containing compiled thrift classes based on generated thrift IDL files
     </description>
-    <url>https://github.com/valitydev/provider-disputes-proto.git</url>
+    <url>https://github.com/valitydev/disputes-proto.git</url>
 
     <licenses>
         <license>
@@ -34,9 +34,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/valitydev/provider-disputes-proto.git</connection>
-        <developerConnection>scm:git:ssh://github.com/valitydev/provider-disputes-proto.git</developerConnection>
-        <url>https://github.com/valitydev/provider-disputes-proto/tree/master</url>
+        <connection>scm:git:git://github.com/valitydev/disputes-proto.git</connection>
+        <developerConnection>scm:git:ssh://github.com/valitydev/disputes-proto.git</developerConnection>
+        <url>https://github.com/valitydev/disputes-proto/tree/master</url>
     </scm>
 
     <properties>

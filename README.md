@@ -1,1 +1,1 @@
-# provider-disputes-proto
+# disputes-proto

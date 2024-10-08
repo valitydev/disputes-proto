@@ -48,6 +48,4 @@ struct DisputeStatusFailResult {
 
 struct DisputeContext {
     1: required DisputeID disputeId
-    2: required string invoiceId
-    3: required string paymentId
 }

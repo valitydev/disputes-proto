@@ -3,24 +3,23 @@ namespace java dev.vality.disputes
 typedef string DisputeID
 typedef string MIMEType
 
+exception DisputeNotFound {}
+
 service MerchantDisputesService {
 
     DisputeCreatedResult CreateDispute (1: DisputeParams disputeParams)
 
-    DisputeStatusResult CheckDisputeStatus (1: DisputeContext disputeContext)
+    DisputeStatusResult CheckDisputeStatus (1: DisputeContext disputeContext) throws (1: DisputeNotFound ex);
 
 }
 
 union DisputeCreatedResult {
     1: DisputeCreatedSuccessResult successResult
-    2: DisputeAlreadyExistResult alreadyExistResult
 }
 
 struct DisputeCreatedSuccessResult {
     1: required DisputeID disputeId
 }
-
-struct DisputeAlreadyExistResult {}
 
 struct DisputeParams {
     1: required string invoiceId

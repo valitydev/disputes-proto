@@ -18,6 +18,7 @@ struct DisputeParams {
     2: required list<Attachment> attachments
     3: optional Cash cash
     4: optional string reason
+    5: optional ID disputeId
 }
 
 union DisputeCreatedResult {

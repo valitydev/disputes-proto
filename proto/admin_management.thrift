@@ -108,5 +108,5 @@ struct DisputeReadyForCreateAdjustment {
 struct DisputeFailedReviewRequired {
     1: required DisputeID id
     2: required string errorCode
-    2: required string errorDescription
+    2: optional string errorDescription
 }

@@ -19,7 +19,7 @@ service AdminManagementService {
 
 service AdminCallbackService {
 
-    void Notify (1: NotifyParamsRequest notifyParamsRequest)
+    void Notify (1: NotificationParamsRequest notificationParamsRequest)
 
 }
 
@@ -82,7 +82,7 @@ struct Attachment {
     1: required binary data
 }
 
-struct NotifyParamsRequest {
+struct NotificationParamsRequest {
     1: required list<Notification> notifications
 }
 

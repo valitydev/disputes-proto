@@ -83,34 +83,30 @@ struct Attachment {
 }
 
 struct NotifyParamsRequest {
-    1: required list<NotifyParams> notifyParams
+    1: required list<Notification> notifications
 }
 
-union NotifyParams {
+union Notification {
     1: DisputeAlreadyCreated disputeAlreadyCreated
-    2: DisputeReadyForCreateInManualMode disputeReadyForCreateInManualMode
-    3: DisputePoolingExpired disputePoolingExpired
-    4: DisputeReadyForCreateAdjustment disputeReadyForCreateAdjustment
-    5: DisputeFailedReadyForReviewInManualMode disputeFailedReadyForReviewInManualMode
+    2: DisputePoolingExpired disputePoolingExpired
+    3: DisputeReadyForCreateAdjustment disputeReadyForCreateAdjustment
+    4: DisputeFailedReviewRequired disputeFailedReviewRequired
 }
 
 struct DisputeAlreadyCreated {
-    1: required DisputeID disputeId
-}
-
-struct DisputeReadyForCreateInManualMode {
-    1: required DisputeID disputeId
+    1: required DisputeID id
 }
 
 struct DisputePoolingExpired {
-    1: required DisputeID disputeId
+    1: required DisputeID id
 }
 
 struct DisputeReadyForCreateAdjustment {
-    1: required DisputeID disputeId
+    1: required DisputeID id
 }
 
-struct DisputeFailedReadyForReviewInManualMode {
-    1: required DisputeID disputeId
-    2: required string errorMessage
+struct DisputeFailedReviewRequired {
+    1: required DisputeID id
+    2: required string errorCode
+    2: required string errorDescription
 }

@@ -5,7 +5,7 @@ include "provider_disputes.thrift"
 typedef provider_disputes.ID ID
 typedef string DisputeID
 
-service ManualParsingService {
+service AdminManagementService {
 
     void CancelPending (1: CancelParamsRequest cancelParamsRequest)
 
@@ -14,6 +14,12 @@ service ManualParsingService {
     void BindCreated (1: BindParamsRequest bindParamsRequest)
 
     DisputeResult GetDisputes (1: DisputeParamsRequest disputeParamsRequest)
+
+}
+
+service AdminCallbackService {
+
+    void Notify (1: NotificationParamsRequest notificationParamsRequest)
 
 }
 
@@ -74,4 +80,33 @@ struct Dispute {
 
 struct Attachment {
     1: required binary data
+}
+
+struct NotificationParamsRequest {
+    1: required list<Notification> notifications
+}
+
+union Notification {
+    1: DisputeAlreadyCreated disputeAlreadyCreated
+    2: DisputePoolingExpired disputePoolingExpired
+    3: DisputeReadyForCreateAdjustment disputeReadyForCreateAdjustment
+    4: DisputeFailedReviewRequired disputeFailedReviewRequired
+}
+
+struct DisputeAlreadyCreated {
+    1: required DisputeID id
+}
+
+struct DisputePoolingExpired {
+    1: required DisputeID id
+}
+
+struct DisputeReadyForCreateAdjustment {
+    1: required DisputeID id
+}
+
+struct DisputeFailedReviewRequired {
+    1: required DisputeID id
+    2: required string errorCode
+    3: optional string errorDescription
 }

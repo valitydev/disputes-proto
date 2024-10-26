@@ -43,7 +43,7 @@ struct DisputeStatusSuccessResult {}
 struct DisputeStatusPendingResult {}
 
 struct DisputeStatusFailResult {
-    1: required string message
+    1: required string mapping
 }
 
 struct DisputeContext {

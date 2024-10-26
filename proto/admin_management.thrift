@@ -47,6 +47,7 @@ struct DisputeResult {
 struct CancelParams {
     1: required DisputeID disputeId
     2: optional string cancelReason
+    3: optional string mapping
 }
 
 struct ApproveParams {
@@ -76,6 +77,7 @@ struct Dispute {
     9: optional string changedAmount
     10: required bool skipCallHgForCreateAdjustment
     11: optional list<Attachment> attachments
+    12: optional string mapping
 }
 
 struct Attachment {

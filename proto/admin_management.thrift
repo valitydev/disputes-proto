@@ -1,8 +1,7 @@
 namespace java dev.vality.disputes.admin
 include "proto/domain.thrift"
-include "provider_disputes.thrift"
 
-typedef provider_disputes.ID ID
+typedef string ID
 typedef string DisputeID
 
 service AdminManagementService {
@@ -93,6 +92,8 @@ union Notification {
     2: DisputePoolingExpired disputePoolingExpired
     3: DisputeReadyForCreateAdjustment disputeReadyForCreateAdjustment
     4: DisputeFailedReviewRequired disputeFailedReviewRequired
+    5: DisputeManualCreated disputeManualCreated
+    6: DisputeManualPending disputeManualPending
 }
 
 struct DisputeAlreadyCreated {
@@ -111,4 +112,14 @@ struct DisputeFailedReviewRequired {
     1: required DisputeID id
     2: required string errorCode
     3: optional string errorDescription
+}
+
+struct DisputeManualPending {
+    1: required DisputeID id
+    2: required string errorMessage
+}
+
+struct DisputeManualCreated {
+    1: required DisputeID id
+    2: required string errorMessage
 }

@@ -11,6 +11,8 @@ service ProviderDisputesService {
 
     DisputeStatusResult CheckDisputeStatus (1: DisputeContext disputeContext)
 
+    bool IsPaymentSuccess (1: TransactionContext disputeContext)
+
 }
 
 struct DisputeParams {

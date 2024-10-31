@@ -6,7 +6,7 @@ typedef string DisputeID
 
 service ProviderDisputesCallbackService {
 
-    void createAdjustmentIfPaymentSuccess (1: DisputeCallbackParams disputeCallbackParams)
+    void CreateAdjustmentIfPaymentSuccess (1: DisputeCallbackParams disputeCallbackParams)
 
 }
 

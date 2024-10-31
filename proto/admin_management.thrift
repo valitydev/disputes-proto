@@ -116,10 +116,10 @@ struct DisputeFailedReviewRequired {
 
 struct DisputeManualPending {
     1: required DisputeID id
-    2: required string errorMessage
+    2: optional string errorMessage
 }
 
 struct DisputeManualCreated {
     1: required DisputeID id
-    2: required string errorMessage
+    2: optional string errorMessage
 }

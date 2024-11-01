@@ -11,7 +11,7 @@ service ProviderDisputesService {
 
     DisputeStatusResult CheckDisputeStatus (1: DisputeContext disputeContext)
 
-    bool IsPaymentSuccess (1: TransactionContext disputeContext)
+    PaymentStatusResult CheckPaymentStatus (1: TransactionContext disputeContext)
 
 }
 
@@ -76,4 +76,9 @@ struct DisputeStatusFailResult {
 struct Cash {
     1: required domain.Amount amount
     2: required domain.Currency currency
+}
+
+struct PaymentStatusResult {
+    1: required bool success
+    2: optional domain.Amount changedAmount
 }

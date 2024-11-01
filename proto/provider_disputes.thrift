@@ -11,7 +11,7 @@ service ProviderDisputesService {
 
     DisputeStatusResult CheckDisputeStatus (1: DisputeContext disputeContext)
 
-    PaymentStatusResult CheckPaymentStatus (1: TransactionContext disputeContext)
+    PaymentStatusResult CheckPaymentStatus (1: TransactionContext disputeContext, 2: domain.Currency currency)
 
 }
 

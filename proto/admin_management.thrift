@@ -66,10 +66,10 @@ struct DisputeParams {
 
 struct Dispute {
     1: required DisputeID disputeId
-    2: optional string providerDisputeId
-    3: required string invoiceId
-    4: required string paymentId
-    5: required string providerTrxId
+    2: optional ID providerDisputeId
+    3: required ID invoiceId
+    4: required ID paymentId
+    5: required ID providerTrxId
     6: required string status
     7: optional string errorMessage
     8: required string amount
@@ -98,40 +98,40 @@ union Notification {
 
 struct DisputeAlreadyCreated {
     1: required DisputeID id
-    2: required string invoiceId
-    3: required string paymentId
+    2: required ID invoiceId
+    3: required ID paymentId
 }
 
 struct DisputePoolingExpired {
     1: required DisputeID id
-    2: required string invoiceId
-    3: required string paymentId
+    2: required ID invoiceId
+    3: required ID paymentId
 }
 
 struct DisputeReadyForCreateAdjustment {
     1: required DisputeID id
-    2: required string invoiceId
-    3: required string paymentId
+    2: required ID invoiceId
+    3: required ID paymentId
 }
 
 struct DisputeFailedReviewRequired {
     1: required DisputeID id
-    2: required string invoiceId
-    3: required string paymentId
+    2: required ID invoiceId
+    3: required ID paymentId
     4: required string errorCode
     5: optional string errorDescription
 }
 
 struct DisputeManualPending {
     1: required DisputeID id
-    2: required string invoiceId
-    3: required string paymentId
+    2: required ID invoiceId
+    3: required ID paymentId
     4: optional string errorMessage
 }
 
 struct DisputeManualCreated {
     1: required DisputeID id
-    2: required string invoiceId
-    3: required string paymentId
+    2: required ID invoiceId
+    3: required ID paymentId
     4: optional string errorMessage
 }

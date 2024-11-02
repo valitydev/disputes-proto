@@ -2,6 +2,7 @@ namespace java dev.vality.disputes.merchant
 
 typedef string DisputeID
 typedef string MIMEType
+typedef string ID
 
 exception DisputeNotFound {}
 
@@ -22,8 +23,8 @@ struct DisputeCreatedSuccessResult {
 }
 
 struct DisputeParams {
-    1: required string invoiceId
-    2: required string paymentId
+    1: required ID invoiceId
+    2: required ID paymentId
     3: required list<Attachment> attachments
 }
 

@@ -31,12 +31,24 @@ struct ProviderPaymentsCallbackParams {
 
 struct CancelParamsRequest {
     1: required bool cancelAll
-    2: optional list<ID> ids
+    2: optional list<CancelParams> cancelParams
 }
 
 struct ApproveParamsRequest {
     1: required bool approveAll
-    2: optional list<ID> ids
+    2: optional list<ApproveParams> approveParams
+}
+
+struct CancelParams {
+    1: required ID id
+    2: required ID invoiceId
+    3: required ID paymentId
+}
+
+struct ApproveParams {
+    1: required ID id
+    2: required ID invoiceId
+    3: required ID paymentId
 }
 
 struct TransactionContext {

@@ -40,15 +40,13 @@ struct ApproveParamsRequest {
 }
 
 struct CancelParams {
-    1: required ID id
-    2: required ID invoiceId
-    3: required ID paymentId
+    1: required ID invoiceId
+    2: required ID paymentId
 }
 
 struct ApproveParams {
-    1: required ID id
-    2: required ID invoiceId
-    3: required ID paymentId
+    1: required ID invoiceId
+    2: required ID paymentId
 }
 
 struct TransactionContext {

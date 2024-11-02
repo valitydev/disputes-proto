@@ -98,28 +98,40 @@ union Notification {
 
 struct DisputeAlreadyCreated {
     1: required DisputeID id
+    2: required string invoiceId
+    3: required string paymentId
 }
 
 struct DisputePoolingExpired {
     1: required DisputeID id
+    2: required string invoiceId
+    3: required string paymentId
 }
 
 struct DisputeReadyForCreateAdjustment {
     1: required DisputeID id
+    2: required string invoiceId
+    3: required string paymentId
 }
 
 struct DisputeFailedReviewRequired {
     1: required DisputeID id
-    2: required string errorCode
-    3: optional string errorDescription
+    2: required string invoiceId
+    3: required string paymentId
+    4: required string errorCode
+    5: optional string errorDescription
 }
 
 struct DisputeManualPending {
     1: required DisputeID id
-    2: optional string errorMessage
+    2: required string invoiceId
+    3: required string paymentId
+    4: optional string errorMessage
 }
 
 struct DisputeManualCreated {
     1: required DisputeID id
-    2: optional string errorMessage
+    2: required string invoiceId
+    3: required string paymentId
+    4: optional string errorMessage
 }

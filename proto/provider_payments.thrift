@@ -1,4 +1,4 @@
-namespace java dev.vality.disputes.callback
+namespace java dev.vality.provider.payments
 include "proto/domain.thrift"
 
 typedef string ID

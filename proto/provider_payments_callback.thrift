@@ -19,14 +19,13 @@ service ProviderPaymentsCallbackAdminManagementService {
 
 service ProviderPaymentsService {
 
-    PaymentStatusResult CheckPaymentStatus (1: TransactionContext disputeContext, 2: domain.Currency currency)
+    PaymentStatusResult CheckPaymentStatus (1: TransactionContext transactionContext, 2: domain.Currency currency)
 
 }
 
 struct ProviderPaymentsCallbackParams {
     1: optional ID invoiceId
     2: optional ID paymentId
-    3: optional ID disputeID
 }
 
 struct CancelParamsRequest {

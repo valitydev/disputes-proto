@@ -9,7 +9,7 @@ service ProviderPaymentsCallbackService {
 
 }
 
-service ProviderPaymentsCallbackAdminManagementService {
+service ProviderPaymentsAdminManagementService {
 
     void Cancel (1: CancelParamsRequest cancelParamsRequest)
 

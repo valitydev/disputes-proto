@@ -32,11 +32,13 @@ struct ProviderPaymentsCallbackParams {
 struct CancelParamsRequest {
     1: required bool cancelAll
     2: optional list<CancelParams> cancelParams
+    3: optional string cancelReason
 }
 
 struct ApproveParamsRequest {
     1: required bool approveAll
     2: optional list<ApproveParams> approveParams
+    3: optional string approveReason
 }
 
 struct CancelParams {

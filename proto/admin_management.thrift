@@ -14,6 +14,8 @@ service AdminManagementService {
 
     DisputeResult GetDisputes (1: DisputeParamsRequest disputeParamsRequest)
 
+    void SetPendingForPoolingExpired(1: SetPendingForPoolingExpiredParamsRequest setPendingForPoolingExpiredParamsRequest)
+
 }
 
 service AdminCallbackService {
@@ -39,6 +41,10 @@ struct DisputeParamsRequest {
     2: required bool withAttachments
 }
 
+struct SetPendingForPoolingExpiredParamsRequest {
+    1: required list<SetPendingForPoolingExpiredParams> setPendingForPoolingExpiredParams
+}
+
 struct DisputeResult {
     1: required list<Dispute> disputes
 }
@@ -61,6 +67,10 @@ struct BindParams {
 }
 
 struct DisputeParams {
+    1: required DisputeID disputeId
+}
+
+struct SetPendingForPoolingExpiredParams {
     1: required DisputeID disputeId
 }
 
@@ -91,9 +101,7 @@ union Notification {
     1: DisputeAlreadyCreated disputeAlreadyCreated
     2: DisputePoolingExpired disputePoolingExpired
     3: DisputeReadyForCreateAdjustment disputeReadyForCreateAdjustment
-    4: DisputeFailedReviewRequired disputeFailedReviewRequired
-    5: DisputeManualCreated disputeManualCreated
-    6: DisputeManualPending disputeManualPending
+    4: DisputeManualPending disputeManualPending
 }
 
 struct DisputeAlreadyCreated {
@@ -114,22 +122,7 @@ struct DisputeReadyForCreateAdjustment {
     3: required ID paymentId
 }
 
-struct DisputeFailedReviewRequired {
-    1: required DisputeID id
-    2: required ID invoiceId
-    3: required ID paymentId
-    4: required string errorCode
-    5: optional string errorDescription
-}
-
 struct DisputeManualPending {
-    1: required DisputeID id
-    2: required ID invoiceId
-    3: required ID paymentId
-    4: optional string errorMessage
-}
-
-struct DisputeManualCreated {
     1: required DisputeID id
     2: required ID invoiceId
     3: required ID paymentId

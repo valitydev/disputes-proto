@@ -19,7 +19,10 @@ service ProviderPaymentsAdminManagementService {
 
 service ProviderPaymentsService {
 
-    PaymentStatusResult CheckPaymentStatus (1: TransactionContext transactionContext, 2: domain.Currency currency)
+    PaymentStatusResult CheckPaymentStatus (
+        1: TransactionContext transactionContext,
+        2: domain.Currency originalCurrency,
+        3: domain.Amount originalAmount)
 
 }
 

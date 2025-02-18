@@ -32,6 +32,7 @@ struct CancelParamsRequest {
     1: required bool cancelAll
     2: optional list<CancelParams> cancelParams
     3: optional string cancelReason
+    4: optional string cancelMapping
 }
 
 struct ApproveParamsRequest {

@@ -26,6 +26,7 @@ struct DisputeParams {
     1: required ID invoiceId
     2: required ID paymentId
     3: required list<Attachment> attachments
+    4: optional string notificationUrl
 }
 
 struct Attachment {

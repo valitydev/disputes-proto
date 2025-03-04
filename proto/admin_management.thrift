@@ -16,6 +16,8 @@ service AdminManagementService {
 
     void SetPendingForPoolingExpired(1: SetPendingForPoolingExpiredParamsRequest setPendingForPoolingExpiredParamsRequest)
 
+    void sendMerchantsNotification(1: MerchantsNotificationParamsRequest merchantsNotificationParamsRequest)
+
 }
 
 service AdminCallbackService {
@@ -45,20 +47,27 @@ struct SetPendingForPoolingExpiredParamsRequest {
     1: required list<SetPendingForPoolingExpiredParams> setPendingForPoolingExpiredParams
 }
 
+struct MerchantsNotificationParamsRequest {
+    1: required ID invoiceId
+    2: required ID paymentId
+}
+
 struct DisputeResult {
     1: required list<Dispute> disputes
 }
 
 struct CancelParams {
-    1: required DisputeID disputeId
-    2: optional string cancelReason
-    3: optional string mapping
+    1: required ID invoiceId
+    2: required ID paymentId
+    3: optional string cancelReason
+    4: optional string mapping
 }
 
 struct ApproveParams {
-    1: required DisputeID disputeId
-    2: required bool skipCallHgForCreateAdjustment
-    3: optional domain.Amount changedAmount
+    1: required ID invoiceId
+    2: required ID paymentId
+    3: required bool skipCallHgForCreateAdjustment
+    4: optional domain.Amount changedAmount
 }
 
 struct BindParams {
@@ -67,11 +76,13 @@ struct BindParams {
 }
 
 struct DisputeParams {
-    1: required DisputeID disputeId
+    1: required ID invoiceId
+    2: required ID paymentId
 }
 
 struct SetPendingForPoolingExpiredParams {
-    1: required DisputeID disputeId
+    1: required ID invoiceId
+    2: required ID paymentId
 }
 
 struct Dispute {
@@ -105,26 +116,22 @@ union Notification {
 }
 
 struct DisputeAlreadyCreated {
-    1: required DisputeID id
-    2: required ID invoiceId
-    3: required ID paymentId
+    1: required ID invoiceId
+    2: required ID paymentId
 }
 
 struct DisputePoolingExpired {
-    1: required DisputeID id
-    2: required ID invoiceId
-    3: required ID paymentId
+    1: required ID invoiceId
+    2: required ID paymentId
 }
 
 struct DisputeReadyForCreateAdjustment {
-    1: required DisputeID id
-    2: required ID invoiceId
-    3: required ID paymentId
+    1: required ID invoiceId
+    2: required ID paymentId
 }
 
 struct DisputeManualPending {
-    1: required DisputeID id
-    2: required ID invoiceId
-    3: required ID paymentId
-    4: optional string errorMessage
+    1: required ID invoiceId
+    2: required ID paymentId
+    3: optional string errorMessage
 }

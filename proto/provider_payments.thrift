@@ -9,14 +9,6 @@ service ProviderPaymentsCallbackService {
 
 }
 
-service ProviderPaymentsAdminManagementService {
-
-    void Cancel (1: CancelParamsRequest cancelParamsRequest)
-
-    void Approve (1: ApproveParamsRequest approveParamsRequest)
-
-}
-
 service ProviderPaymentsService {
 
     PaymentStatusResult CheckPaymentStatus (1: TransactionContext transactionContext, 2: domain.Currency currency)
@@ -26,29 +18,6 @@ service ProviderPaymentsService {
 struct ProviderPaymentsCallbackParams {
     1: optional ID invoiceId
     2: optional ID paymentId
-}
-
-struct CancelParamsRequest {
-    1: required bool cancelAll
-    2: optional list<CancelParams> cancelParams
-    3: optional string cancelReason
-    4: optional string cancelMapping
-}
-
-struct ApproveParamsRequest {
-    1: required bool approveAll
-    2: optional list<ApproveParams> approveParams
-    3: optional string approveReason
-}
-
-struct CancelParams {
-    1: required ID invoiceId
-    2: required ID paymentId
-}
-
-struct ApproveParams {
-    1: required ID invoiceId
-    2: required ID paymentId
 }
 
 struct TransactionContext {

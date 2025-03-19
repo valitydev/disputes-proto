@@ -40,7 +40,9 @@ union DisputeStatusResult {
     3: DisputeStatusFailResult statusFail
 }
 
-struct DisputeStatusSuccessResult {}
+struct DisputeStatusSuccessResult {
+    1: optional i64 changedAmount
+}
 
 struct DisputeStatusPendingResult {}
 

@@ -25,6 +25,7 @@ union DisputeCreatedResult {
     1: DisputeCreatedSuccessResult successResult
     2: DisputeCreatedFailResult failResult
     3: DisputeAlreadyExistResult alreadyExistResult
+    5: DisputeRetryLater retryLater
 }
 
 struct DisputeContext {
@@ -60,6 +61,8 @@ struct DisputeCreatedFailResult {
 }
 
 struct DisputeAlreadyExistResult {}
+
+struct DisputeRetryLater {}
 
 struct DisputeStatusSuccessResult {
     1: optional domain.Amount changedAmount

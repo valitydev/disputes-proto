@@ -25,6 +25,7 @@ struct TransactionContext {
     2: required domain.ProxyOptions terminalOptions
     3: required ID invoiceId
     4: required ID paymentId
+    5: optional domain.TransactionInfo transactionInfo
 }
 
 struct PaymentStatusResult {

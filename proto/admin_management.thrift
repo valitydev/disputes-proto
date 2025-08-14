@@ -59,7 +59,7 @@ struct DisputeResult {
 struct CancelParams {
     1: required ID invoiceId
     2: required ID paymentId
-    3: optional string providerMessage
+    3: optional string adminMessage
     4: optional string mapping
 }
 
@@ -68,7 +68,7 @@ struct ApproveParams {
     2: required ID paymentId
     3: required bool skipCallHgForCreateAdjustment
     4: optional domain.Amount changedAmount
-    5: optional string providerMessage
+    5: optional string adminMessage
 }
 
 struct BindParams {
@@ -102,6 +102,7 @@ struct Dispute {
     13: optional string technicalErrorMessage
     14: optional string mode
     15: optional string providerMessage
+    16: optional string adminMessage
 }
 
 struct Attachment {

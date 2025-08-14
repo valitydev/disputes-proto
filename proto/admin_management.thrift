@@ -22,7 +22,7 @@ service AdminManagementService {
 
 service AdminCallbackService {
 
-    void Notify (1: NotificationParamsRequest notificationParamsRequest)
+    void Notify (1: Dispute dispute)
 
 }
 
@@ -59,7 +59,7 @@ struct DisputeResult {
 struct CancelParams {
     1: required ID invoiceId
     2: required ID paymentId
-    3: optional string cancelReason
+//    3: optional string _reserved
     4: optional string mapping
 }
 
@@ -92,46 +92,17 @@ struct Dispute {
     4: required ID paymentId
     5: required ID providerTrxId
     6: required string status
-    7: optional string errorMessage
+//    7: optional string _reserved
     8: required string amount
     9: optional string changedAmount
-    10: required bool skipCallHgForCreateAdjustment
+//    10: required bool _reserved
     11: optional list<Attachment> attachments
     12: optional string mapping
+    13: optional string technicalErrorMessage
+    14: optional string mode
+    15: optional string providerMessage
 }
 
 struct Attachment {
     1: required binary data
-}
-
-struct NotificationParamsRequest {
-    1: required list<Notification> notifications
-}
-
-union Notification {
-    1: DisputeAlreadyCreated disputeAlreadyCreated
-    2: DisputePoolingExpired disputePoolingExpired
-    3: DisputeReadyForCreateAdjustment disputeReadyForCreateAdjustment
-    4: DisputeManualPending disputeManualPending
-}
-
-struct DisputeAlreadyCreated {
-    1: required ID invoiceId
-    2: required ID paymentId
-}
-
-struct DisputePoolingExpired {
-    1: required ID invoiceId
-    2: required ID paymentId
-}
-
-struct DisputeReadyForCreateAdjustment {
-    1: required ID invoiceId
-    2: required ID paymentId
-}
-
-struct DisputeManualPending {
-    1: required ID invoiceId
-    2: required ID paymentId
-    3: optional string errorMessage
 }

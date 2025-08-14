@@ -68,6 +68,7 @@ struct DisputeRetryLater {}
 
 struct DisputeStatusSuccessResult {
     1: optional domain.Amount changedAmount
+    2: optional string providerMessage
 }
 
 struct DisputeStatusPendingResult {}

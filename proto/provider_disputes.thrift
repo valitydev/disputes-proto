@@ -32,6 +32,7 @@ struct DisputeContext {
     1: required ProviderDisputeID providerDisputeId
     2: required domain.Currency currency
     3: required domain.ProxyOptions terminalOptions
+    4: optional domain.TransactionInfo transactionInfo
 }
 
 union DisputeStatusResult {
@@ -45,6 +46,7 @@ struct TransactionContext {
     2: required domain.ProxyOptions terminalOptions
     3: required ID invoiceId
     4: required ID paymentId
+    5: optional domain.TransactionInfo transactionInfo
 }
 
 struct Attachment {

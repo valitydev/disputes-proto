@@ -35,7 +35,7 @@ struct CancelParamsRequest {
 }
 
 struct UpdatePendingParamsRequest {
-    1: required list<UpdatePendingParams> cancelParams
+    1: required list<UpdatePendingParams> pendingParams
 }
 
 struct ApproveParamsRequest {

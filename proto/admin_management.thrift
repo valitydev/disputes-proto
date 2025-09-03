@@ -10,6 +10,8 @@ service AdminManagementService {
 
     void ApprovePending (1: ApproveParamsRequest approveParamsRequest)
 
+    void UpdatePending (1: UpdatePendingParamsRequest updatePendingParamsRequest)
+
     void BindCreated (1: BindParamsRequest bindParamsRequest)
 
     DisputeResult GetDisputes (1: DisputeParamsRequest disputeParamsRequest)
@@ -30,6 +32,10 @@ service AdminCallbackService {
 
 struct CancelParamsRequest {
     1: required list<CancelParams> cancelParams
+}
+
+struct UpdatePendingParamsRequest {
+    1: required list<UpdatePendingParams> pendingParams
 }
 
 struct ApproveParamsRequest {
@@ -63,6 +69,12 @@ struct CancelParams {
     2: required ID paymentId
     3: optional string providerMessage
     4: optional string mapping
+}
+
+struct UpdatePendingParams {
+    1: required ID invoiceId
+    2: required ID paymentId
+    3: required string providerMessage
 }
 
 struct ApproveParams {

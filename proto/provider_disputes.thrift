@@ -19,6 +19,8 @@ struct DisputeParams {
     3: optional Cash cash
     4: optional string reason
     5: optional ID disputeId
+    6: optional string payerEmail
+    7: optional string riskScore
 }
 
 union DisputeCreatedResult {

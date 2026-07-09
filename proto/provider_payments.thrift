@@ -31,4 +31,5 @@ struct TransactionContext {
 struct PaymentStatusResult {
     1: required bool success
     2: optional domain.Amount changedAmount
+    3: optional domain.TransactionInfo transactionInfo
 }

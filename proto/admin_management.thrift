@@ -125,6 +125,6 @@ struct Attachment {
 }
 
 struct AttachmentRef {
-    1: required ID fileId
+    1: required string sourceUrl
     2: required string mimeType
 }

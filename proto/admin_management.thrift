@@ -121,7 +121,7 @@ struct Dispute {
 
 struct Attachment {
     1: required binary data
-    2: optional string mimeType
+    2: required string mimeType
 }
 
 struct AttachmentRef {

@@ -28,6 +28,8 @@ service AdminCallbackService {
 //    1: optional string _reserved
     2: Dispute dispute)
 
+    void NotifyV2 (1: DisputeNotification notification)
+
 }
 
 struct CancelParamsRequest {
@@ -120,4 +122,28 @@ struct Dispute {
 
 struct Attachment {
     1: required binary data
+    2: optional string mimeType
+}
+
+// Lightweight notification: the recipient resolves file references only when needed.
+struct DisputeNotification {
+    1: required DisputeID disputeId
+    2: optional ID providerDisputeId
+    3: required ID invoiceId
+    4: required ID paymentId
+    5: required ID providerTrxId
+    6: required string status
+    7: required string amount
+    8: optional string changedAmount
+    9: optional list<AttachmentRef> attachments
+    10: optional string mapping
+    11: optional string technicalErrorMessage
+    12: optional string mode
+    13: optional string providerMessage
+}
+
+struct AttachmentRef {
+    // file-storage FileDataID, not a Telegram file identifier or a download URL.
+    1: required ID fileId
+    2: required string mimeType
 }

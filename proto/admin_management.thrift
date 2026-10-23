@@ -116,8 +116,15 @@ struct Dispute {
     13: optional string technicalErrorMessage
     14: optional string mode
     15: optional string providerMessage
+    16: optional list<AttachmentRef> attachmentRefs
 }
 
 struct Attachment {
     1: required binary data
+    2: required string mimeType
+}
+
+struct AttachmentRef {
+    1: required ID fileId
+    2: required string mimeType
 }

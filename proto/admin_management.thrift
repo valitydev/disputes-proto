@@ -125,7 +125,6 @@ struct Attachment {
     2: optional string mimeType
 }
 
-// Lightweight notification: the recipient resolves file references only when needed.
 struct DisputeNotification {
     1: required DisputeID disputeId
     2: optional ID providerDisputeId
@@ -143,7 +142,6 @@ struct DisputeNotification {
 }
 
 struct AttachmentRef {
-    // file-storage FileDataID, not a Telegram file identifier or a download URL.
     1: required ID fileId
     2: required string mimeType
 }
